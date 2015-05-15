@@ -24,7 +24,7 @@
             </fieldset>
         </form>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-6">
         <form method="post" action="registar_cliente.php">
             <fieldset style="width:200px">
                 <p><label for="username">Username:</label><input type="text" name="username"/> </p>
