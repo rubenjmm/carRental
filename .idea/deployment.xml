@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="XAMPP Apache" />
+  <component name="PublishConfigData" serverName="XAMPP Apache">
+    <serverData>
+      <paths name="Gnomo">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/opt/si/si15" local="$PROJECT_DIR$" web="/si15" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
 </project>
