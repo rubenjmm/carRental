@@ -4,7 +4,7 @@ include 'classes/empresa.php';
 
 if (isset($_POST["username"], $_POST["password"])) {
     $user = $_POST["username"];
-    $pass = ($_POST["password"]);
+    $pass = md5($_POST["password"]);
 
     $filial = Filial::loadByUsername($user);
     $empresa = Empresa::loadByUsername($user);

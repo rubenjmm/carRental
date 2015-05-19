@@ -1,4 +1,5 @@
-﻿<head>
+﻿<html>
+<head>
 <title>Registo</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 

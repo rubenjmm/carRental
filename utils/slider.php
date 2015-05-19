@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-require_once "utils/head.php";
+require_once ROOT."utils/head.php";
 ?>
 
 

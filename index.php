@@ -1,18 +1,12 @@
 <?php
-require_once "utils/head.php";
-require_once "utils/navbar.php";
-require_once "utils/slider.php";
+define ('ROOT', (dirname(__FILE__))."/");
+require_once ROOT."utils/head.php";
+require_once ROOT."utils/navbar.php";
+require_once ROOT."utils/slider.php";
 ?>
 
+<html>
 <body>
-
-<div class="row">
-    <div class="col-md-12">
-        <!--TODO: mandar background para traz -->
-        <img src="img/background.jpg" style="position: relative;" class="img-responsive image-zindex-1" alt="background">
-        <img src="img/nav_bar_logo.jpg" style="position: relative;" class="img-responsive" alt="background">
-    </div>
-</div>
 <div class="row">
     <div class="col-md-6">
         <form class="form-group" action="searchRentACar.php" method="post">
