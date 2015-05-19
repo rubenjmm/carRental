@@ -1,5 +1,6 @@
 <?php
-require_once "utils/header.php";
+require_once "utils/head.php";
+require_once "utils/navbar.php";
 require_once "utils/slider.php";
 ?>
 

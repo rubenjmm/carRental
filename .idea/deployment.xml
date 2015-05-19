@@ -2,10 +2,10 @@
 <project version="4">
   <component name="PublishConfigData" serverName="XAMPP Apache">
     <serverData>
-      <paths name="Gnomo">
+      <paths name="Gnomo grupo">
         <serverdata>
           <mappings>
-            <mapping deploy="/opt/si/si15" local="$PROJECT_DIR$" web="/si15" />
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
