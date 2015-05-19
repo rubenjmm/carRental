@@ -7,16 +7,18 @@ class Filial
     public $username;
     public $password;
     public $morada;
+	public $cidade;
 	public $telefone;
 	public $telemovel;
 	public $email;
 	public $empresa_id;
 	
-    public function __construct($id = null, $username = null, $password = null, $morada = null, $telefone=null, $telemovel=null, $email=null, $empresa_id=null) {
+    public function __construct($id = null, $username = null, $password = null, $morada = null, $cidade = null, $telefone=null, $telemovel=null, $email=null, $empresa_id=null) {
       $this->id = $id;
       $this->username = $username;
 	  $this->password=$password;
       $this->morada = $morada;
+	  $this->cidade = $cidade;
 	  $this->telefone=$telefone;
       $this->telemovel = $telemovel;
 	  $this->email=$email;
@@ -51,9 +53,9 @@ class Filial
 	}
 		
 	public function insert() {
-        $sql = "INSERT INTO filiais (username, password, morada, telefone, 
+        $sql = "INSERT INTO filiais (username, password, morada, cidade, telefone, 
 		telemovel, email, empresa_id)
-                VALUES ('$this->username', '$this->password', '$this->morada', 
+                VALUES ('$this->username', '$this->password', '$this->morada', '$this->cidade',
 				'$this->telefone', '$this->telemovel', '$this->email', '$this->empresa_id')"; 
 
         $result = mysql_query($sql) or die('insert: Invalid query: ' . mysql_error());
@@ -62,7 +64,7 @@ class Filial
 	
 	public function update() {
         $sql = "UPDATE filiais SET username = '$this->username', 
-		password = '$this->password', morada = '$this->morada', telefone = '$this->telefone',
+		password = '$this->password', morada = '$this->morada', cidade = '$this->cidade', telefone = '$this->telefone',
 		telemovel = '$this->telemovel',	email = '$this->email',	empresa_id = '$this->empresa_id'
                 WHERE id = $this->id";
 
@@ -74,16 +76,28 @@ class Filial
         $result = mysql_query($sql) or die('delete: Invalid query: ' . mysql_error());
     }		
 	
-	 public static function getAll() {
+	public static function getAll() {
         $sql = 'SELECT * FROM filiais, empresas WHERE empresas.id = filiais.empresa_id';
         $result = mysql_query($sql) or die('getall: Invalid query: ' . mysql_error());
 
         $filiais = array();
         while ($row = mysql_fetch_assoc($result)) {
-            $filiais[] = new Filial($row["id"], $row["username"], $row["password"], $row["morada"], $row["telefone"], $row["telemovel"], $row["email"], $row["empresa_id"]);
+            $filiais[] = new Filial($row["id"], $row["username"], $row["password"], $row["morada"], $row["cidade"], $row["telefone"], $row["telemovel"], $row["email"], $row["empresa_id"]);
         }
         return $filiais;
     }
+	
+	public static function getAllByCidade($cidade) {
+        $sql = 'SELECT id, username FROM filiais WHERE cidade = "'. $cidade. '"';
+        $result = mysql_query($sql) or die('getall: Invalid query: ' . mysql_error());
+
+        $filiais = array();
+        while ($row = mysql_fetch_assoc($result)) {
+            $filiais[] = new Filial($row["id"], $row["username"]);
+        }
+        return $filiais;
+    }
+	
 	
 }
 ?>
