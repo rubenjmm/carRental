@@ -1,3 +1,7 @@
+<?php
+defined('ROOT') or define ('ROOT', (dirname(dirname(__FILE__)))."/");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +19,7 @@
 
     <link href="css/style.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
+    <link href="css/custom_form_1.css" rel="stylesheet">
 
     <!-- Start WOWSlider.com HEAD section -->
     <link rel="stylesheet" type="text/css" href="engine1/style.css" />

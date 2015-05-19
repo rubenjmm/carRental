@@ -1,5 +1,5 @@
 <?php
-define ('ROOT', (dirname(__FILE__))."/");
+defined('ROOT') or define ('ROOT', (dirname(__FILE__))."/");
 require_once ROOT."utils/head.php";
 require_once ROOT."utils/navbar.php";
 require_once ROOT."utils/slider.php";
