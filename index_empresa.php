@@ -1,10 +1,12 @@
 <?php
+
+session_start();
+
 require_once "utils/head.php";
 require_once "utils/navbar.php";
 require_once "utils/slider.php";
 require_once "classes/filial.php";
 
-session_start();
 
 if(isset($_GET["action"]) and $_GET["action"]=="delete" and isset($_GET["filial_id"])) {
 	Filial::delete($_GET["filial_id"]);
@@ -21,7 +23,7 @@ if(isset($_POST['nome']) and isset($_POST['morada']) and isset($_POST['username'
 $filiais = Filial::getAllByEmpresa($_GET['empresa_id']);
 foreach ($filiais as $filial):?>
     <tr>
-		<td><?php echo $filial->nome; ?></td>
+
 		<td><?php echo $filial->username; ?></td>
 		<td><?php echo $filial->morada; ?></td>
 		<td><a href="index_empresa.php?empresa_id=<?php echo $_SESSION['empresa_id']; ?>&action=delete&filial_id=<?php echo $filial->id; ?>">Eliminar</td>

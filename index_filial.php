@@ -1,11 +1,13 @@
 <?php
 
+session_start();
+
 require_once "utils/head.php";
 require_once "utils/navbar.php";
 require_once "utils/slider.php";
 require_once "classes/veiculo.php";
 
-session_start();
+
 
 if(isset($_GET["action"]) and $_GET["action"]=="delete" and isset($_GET["veiculo_id"])) {
 	Veiculo::delete($_GET["veiculo_id"]);
