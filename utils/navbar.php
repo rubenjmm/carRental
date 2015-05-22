@@ -8,7 +8,7 @@ require_once ROOT."utils/head.php";
 <nav class="navbar navbar-custom navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" rel="home" href="#" title="Car Rental">
+            <a class="navbar-brand" rel="home" href="index.php" title="Car Rental">
                 <img style="max-width:150px;margin:-17px;" src="img/nav_bar_logo.jpg" class="img-responsive" alt="Rent a Car">
             </a>
         </div>
