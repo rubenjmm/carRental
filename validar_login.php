@@ -17,12 +17,12 @@ if (isset($_POST["username"], $_POST["password"])) {
         if ($filial <> NULL) {
 		session_start();
         $_SESSION['filial_id'] = $filial->id;
-        header("Location: ver_filial.php?id=$filial->id");
+        header("Location: index_filial.php?filial_id=$filial->id");
 		}
 		else {
 		session_start();
         $_SESSION['empresa_id'] = $empresa->id;
-        header("Location: ver_empresa.php?id=$empresa->id");
+        header("Location: index_empresa.php?empresa_id=$empresa->id");
 		}
     }    
 }

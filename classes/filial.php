@@ -72,12 +72,12 @@ class Filial
     }
 	
 	public static function delete($id) {
-        $sql = "DELETE FROM filiais WHERE id = $id";
+        $sql = 'DELETE FROM filiais WHERE id = "'. $id. '"';
         $result = mysql_query($sql) or die('delete: Invalid query: ' . mysql_error());
     }		
 	
-	public static function getAll() {
-        $sql = 'SELECT * FROM filiais, empresas WHERE empresas.id = filiais.empresa_id';
+	public static function getAllByEmpresa($empresa_id) {
+        $sql = 'SELECT * FROM filiais WHERE filiais.empresa_id = "'. $empresa_id. '"';
         $result = mysql_query($sql) or die('getall: Invalid query: ' . mysql_error());
 
         $filiais = array();

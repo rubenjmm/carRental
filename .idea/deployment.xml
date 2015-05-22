@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="XAMPP Apache" overwriteAll="false">
+  <component name="PublishConfigData" serverName="XAMPP Apache" overwriteAll="false" createEmptyFolders="true">
     <serverData>
       <paths name="Gnomo grupo">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Gnomo pessoal">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/Si II/CarRental/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
