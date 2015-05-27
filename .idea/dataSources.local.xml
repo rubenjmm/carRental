@@ -7,5 +7,11 @@
       <schema-pattern>si15.*</schema-pattern>
       <default-schemas>si15.*</default-schemas>
     </data-source>
+    <data-source name="MySQL - si15@localhost" uuid="b273a62a-e596-42ae-af88-11ce4f7696d6">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>si15.*</schema-pattern>
+      <default-schemas>si15.*</default-schemas>
+    </data-source>
   </component>
 </project>

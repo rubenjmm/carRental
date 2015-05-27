@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php
+defined('ROOT') or define ('ROOT', (dirname(dirname(__FILE__)))."/");
 require_once ROOT."utils/head.php";
 ?>
 
@@ -13,18 +14,27 @@ require_once ROOT."utils/head.php";
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right" action="registar.php">
-                <input type="submit" class="btn btn-custom" value="Registar">
-            </form>
-            <form class="navbar-form navbar-right" action="validar_login.php" method="post">
-                <div class="form-group">
-                    <input type="text" name="username" placeholder="Username" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="password" name="password" placeholder="Password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-custom">Login</button>
-            </form>
+            <?php if(PHP_SESSION_ACTIVE == session_status()):?>
+                <form class="navbar-form navbar-right" action="logout.php">
+                    <input type="submit" class="btn btn-custom" value="Logout">
+                </form>
+                <form  class="navbar-form navbar-right" action="index_empresa.php">
+                    <input type="submit" class="btn btn-custom" value="My Profile">
+                </form>
+            <?php else: ?>
+                <form class="navbar-form navbar-right" action="registar.php">
+                    <input type="submit" class="btn btn-custom" value="Registar">
+                </form>
+                <form class="navbar-form navbar-right" action="validar_login.php" method="post">
+                    <div class="form-group">
+                        <input type="text" name="username" placeholder="Username" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="Password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-custom">Login</button>
+                </form>
+            <?php endif; ?>
         </div>
     </div>
 </nav>

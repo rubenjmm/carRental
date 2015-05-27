@@ -130,4 +130,136 @@
       <exported-key name="marcacoesrevisoes_ibfk_2" table="marcacoesrevisoes" schema="" catalog="si15" columns="veiculo_id"/>
     </table>
   </data-source>
+  <data-source name="MySQL - si15@localhost" uuid="b273a62a-e596-42ae-af88-11ce4f7696d6">
+    <database-info product="MySQL" version="5.6.24" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="si15"/>
+    <table name="clientes" schema="" catalog="si15" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nome" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="titulo" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="morada" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="username" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="password" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="telemovel" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="email" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="condutoresclientes_ibfk_2" table="condutoresclientes" schema="" catalog="si15" columns="cliente_id"/>
+      <exported-key name="marcacoesalugueres_ibfk_4" table="marcacoesalugueres" schema="" catalog="si15" columns="cliente_id"/>
+      <exported-key name="pagamentos_ibfk_1" table="pagamentos" schema="" catalog="si15" columns="cliente_id"/>
+    </table>
+    <table name="condutores" schema="" catalog="si15" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nome" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="apelido" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="datanascimento" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="ncartaconducao" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="condutoresclientes_ibfk_1" table="condutoresclientes" schema="" catalog="si15" columns="condutor_id"/>
+      <exported-key name="marcacoesalugueres_ibfk_3" table="marcacoesalugueres" schema="" catalog="si15" columns="condutor_id"/>
+    </table>
+    <table name="condutoresclientes" schema="" catalog="si15" type="TABLE">
+      <column name="condutor_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cliente_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <foreign-key name="condutoresclientes_ibfk_1" columns="condutor_id" ref-table="condutores" ref-schema="" ref-catalog="si15" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="condutoresclientes_ibfk_2" columns="cliente_id" ref-table="clientes" ref-schema="" ref-catalog="si15" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="condutor_id" unique="false" columns="cliente_id"/>
+      <index name="condutor_id_2" unique="false" columns="condutor_id"/>
+    </table>
+    <table name="empresas" schema="" catalog="si15" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nome" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="morada" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="username" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="password" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="nif" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="telefone" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="telemovel" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="email" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="filiais_ibfk_1" table="filiais" schema="" catalog="si15" columns="empresa_id"/>
+    </table>
+    <table name="filiais" schema="" catalog="si15" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="password" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="morada" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="cidade" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="telefone" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="telemovel" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="email" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="empresa_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="filiais_ibfk_1" columns="empresa_id" ref-table="empresas" ref-schema="" ref-catalog="si15" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <exported-key name="veiculos_ibfk_2" table="veiculos" schema="" catalog="si15" columns="filial_id"/>
+    </table>
+    <table name="marcacoes" schema="" catalog="si15" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="datamarcacao" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="datainicio" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="datafim" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="filial_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="marcacoesalugueres_ibfk_1" table="marcacoesalugueres" schema="" catalog="si15" columns="id"/>
+      <exported-key name="marcacoesrevisoes_ibfk_1" table="marcacoesrevisoes" schema="" catalog="si15" columns="id"/>
+    </table>
+    <table name="marcacoesalugueres" schema="" catalog="si15" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="referencia" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="veiculo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="condutor_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cliente_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="pagamento_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <foreign-key name="marcacoesalugueres_ibfk_1" columns="id" ref-table="marcacoes" ref-schema="" ref-catalog="si15" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="marcacoesalugueres_ibfk_2" columns="veiculo_id" ref-table="veiculos" ref-schema="" ref-catalog="si15" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="marcacoesalugueres_ibfk_3" columns="condutor_id" ref-table="condutores" ref-schema="" ref-catalog="si15" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="marcacoesalugueres_ibfk_4" columns="cliente_id" ref-table="clientes" ref-schema="" ref-catalog="si15" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="marcacoesalugueres_ibfk_5" columns="pagamento_id" ref-table="pagamentos" ref-schema="" ref-catalog="si15" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="marcacoesrevisoes" schema="" catalog="si15" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="kms" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="componentes" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="veiculo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <foreign-key name="marcacoesrevisoes_ibfk_1" columns="id" ref-table="marcacoes" ref-schema="" ref-catalog="si15" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="marcacoesrevisoes_ibfk_2" columns="veiculo_id" ref-table="veiculos" ref-schema="" ref-catalog="si15" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="pagamentos" schema="" catalog="si15" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="montante" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="descricao" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="data" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="cliente_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="pagamentos_ibfk_1" columns="cliente_id" ref-table="clientes" ref-schema="" ref-catalog="si15" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <exported-key name="marcacoesalugueres_ibfk_5" table="marcacoesalugueres" schema="" catalog="si15" columns="pagamento_id"/>
+    </table>
+    <table name="tiposveiculos" schema="" catalog="si15" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="categoria" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="preco" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="npassageiros" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nbagagens" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="veiculos_ibfk_1" table="veiculos" schema="" catalog="si15" columns="tipo_id"/>
+    </table>
+    <table name="veiculos" schema="" catalog="si15" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="marca" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="modelo" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="matricula" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="cor" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="kms" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tipo_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="filial_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="veiculos_ibfk_1" columns="tipo_id" ref-table="tiposveiculos" ref-schema="" ref-catalog="si15" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="veiculos_ibfk_2" columns="filial_id" ref-table="filiais" ref-schema="" ref-catalog="si15" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <exported-key name="marcacoesalugueres_ibfk_2" table="marcacoesalugueres" schema="" catalog="si15" columns="veiculo_id"/>
+      <exported-key name="marcacoesrevisoes_ibfk_2" table="marcacoesrevisoes" schema="" catalog="si15" columns="veiculo_id"/>
+    </table>
+  </data-source>
 </component>

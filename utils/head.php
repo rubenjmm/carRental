@@ -27,4 +27,3 @@ defined('ROOT') or define ('ROOT', (dirname(dirname(__FILE__)))."/");
     <!-- End WOWSlider.com HEAD section -->
 
 </head>
-</html>

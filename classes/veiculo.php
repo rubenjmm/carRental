@@ -76,5 +76,16 @@ class Veiculo
         return $veiculos;
     }
 		
+	 public static function getDetails($id) {
+        $sql = 'SELECT * FROM veiculos WHERE veiculos.id = "'. $id. '"';
+        $result = mysql_query($sql) or die('getall: Invalid query: ' . mysql_error());
+
+        $veiculos = array();
+        while ($row = mysql_fetch_assoc($result)) {
+            $veiculos[] = new Veiculo($row["id"], $row["marca"], $row["modelo"], $row["matricula"],
+			$row["cor"], $row["kms"], $row["tipo_id"], $row["filial_id"]);
+        }
+        return $veiculos;
+    }
 }
 ?>
