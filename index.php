@@ -2,6 +2,8 @@
 defined('ROOT') or define ('ROOT', (dirname(__FILE__))."/");
 require "utils/head.php";
 require "utils/navbar.php";
+require_once "classes/filial.php";
+require_once "classes/marcacao.php";
 ?>
 
 <body>
@@ -12,11 +14,17 @@ require "utils/navbar.php";
 </div>
 <div class="row" style="z-index: 1; position:relative;top: 200px">
     <div class="col-md-6">
-        <form class="form-group form-style-10" style="background: #fa7921"  action="searchRentACar.php" method="post">
-            <p><h3 style="text-decoration-color: #0d2e58">Pesquise por carros perto de si</h3></p>
-            <br>
-            <input type="text" name="cidade" placeholder="Cidade" class="form-control">
-            <br>
+        <form class="form-group form-style-10" style="background: #fa7921"  action="index.php" method="get">
+            <h3 style="text-decoration-color: #0d2e58">Pesquise por carros perto de si</h3>
+            <p style="text-decoration-color: #0d2e58">Cidade <input type="text" name="cidade" placeholder="Cidade" class="form-control">
+            <div class="row">
+                <div class="col-md-6">
+                    <p style="text-decoration-color: #0d2e58">Data de levantamento <input type ="date" name="datainicio" placeholder="dd-mm-aaaa"></p>
+                </div>
+                <div class="col-md-6">
+                    <p style="text-decoration-color: #0d2e58">Data de devolucao <input type="date" name ="datafim " placeholder="dd-mm-aaaa"></p>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-12" align="right">
                     <button type="submit" class="btn btn-custom">Pesquisar</button>
@@ -68,6 +76,29 @@ require "utils/navbar.php";
     </div>
 </div>
 
+<?php
+    $filiais = Filial::getAllByCidade($_GET['cidade']);
+
+    foreach ($filiais as $filial):
+
+        $fi_id=$filial->id;
+        $marcacao=Marcacao::loadByDatas($_GET['datainicio'],$_GET['$datafim'],$fi_id);
+
+        if(!$marcacao){
+            header(Var_dump("2"));
+        ?>
+        <tr>
+            <td><?php echo $filial->username; ?></td>
+        </tr>
+
+        <?php
+        }
+        else
+        {
+            header(Var_dump("1"));
+        }
+    endforeach;
+?>
 
 <?php
     if (isset($_GET["erro"])) {

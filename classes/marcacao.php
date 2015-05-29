@@ -66,5 +66,29 @@ class Marcacao
         return $marcacoes;
     }
 	
+	public static function loadByDatas($datainicio, $datafim, $filial_id) {
+      $result = mysql_query("select * from marcacoes where datainicio = '$datainicio' and datafim='$datafim' and filial_id='$filial_id'");
+			if ($result==NULL) {
+   				$marc = new Marcacao();
+				$marc->id = $row["id"];
+				$marc->datamarcacao = $row["datamarcacao"];
+				$marc->datainicio = $row["datainicio"];
+				$marc->datafim = $row["datafim"];
+				$marc->filial_id = $row["filial_id"];
+			return $marc;
+			}
+
+			$row = mysql_fetch_assoc($result);
+			if ($row==NULL) {
+				$marc = new Marcacao();
+				$marc->id = $row["id"];
+				$marc->datamarcacao = $row["datamarcacao"];
+				$marc->datainicio = $row["datainicio"];
+				$marc->datafim = $row["datafim"];
+				$marc->filial_id = $row["filial_id"];
+			return $marc;
+			}
+        return ;
+	}
 }
 ?>
