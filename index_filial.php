@@ -13,14 +13,19 @@ if(isset($_GET["action"]) and $_GET["action"]=="delete" and isset($_GET["veiculo
 	Veiculo::delete($_GET["veiculo_id"]);
 }
 
-if(isset($_POST['nome']) and isset($_POST['morada']) and isset($_POST['username']) and isset($_POST['password']) and isset($_POST['nif']) and isset($_POST['telefone']) and isset($_POST['telemovel']) and isset($_POST['email'])) {
-	$veiculo = new Veiculo(NULL, $_POST['marca'], $_POST['morada'], $_POST['username'], $_POST['password'], $_POST['nif'], $_POST['telefone'], $_POST['telemovel'], $_POST['email'], $_session['empresa_id']);
+if(isset($_POST['marca']) and isset($_POST['modelo']) and isset($_POST['matricula']) and isset($_POST['cor']) and isset($_POST['kms'])) {
+	$veiculo = new Veiculo(NULL, $_POST['marca'], $_POST['modelo'], $_POST['matricula'], $_POST['cor'], $_POST['kms'], $_POST['tipo_id'], $_SESSION['filial_id']);
 	$veiculo->insert();
 }
 ?>
 
 
 <table>
+	<tr>
+		<th>Marca</th>
+		<th>Modelo</th>
+		<th>Matricula</th>
+	</tr>
 <?php
 
 $veiculos = Veiculo::getAllByFilial($_GET['filial_id']);
@@ -29,10 +34,20 @@ foreach ($veiculos as $veiculo):?>
 		<td><?php echo $veiculo->marca; ?></td>
 		<td><?php echo $veiculo->modelo; ?></td>
 		<td><?php echo $veiculo->matricula; ?></td>
-		<td><?php echo $veiculo->cor; ?></td>
-		<td><?php echo $veiculo->kms; ?></td>
-		<td><?php echo $veiculo->tipo_id; ?></td>
+		<td><a href="detalhes_veiculo.php?id=<?php echo $veiculo->id; ?>">Ver Detalhes</td>
 		<td><a href="index_filial.php?filial_id=<?php echo $_SESSION['filial_id']; ?>&action=delete&veiculo_id=<?php echo $veiculo->id; ?>">Eliminar</td>
 	</tr>
 <?php endforeach;?>
 </table>
+
+<form method="post" action="index_filial.php?filial_id=<?php echo $_SESSION['filial_id']; ?>">
+    <fieldset style="width:200px">
+        <p><label for="marca">Marca:</label><input type="text" name="marca"/> </p>
+		<p><label for="modelo">Modelo:</label><input type="text" name="modelo"/> </p>
+		<p><label for="matricula">Matricula:</label><input type="text" name="matricula"/> </p>
+        <p><label for="cor">Cor:</label><input type="text" name="cor"/> </p>
+        <p><label for="kms">Kms:</label><input type="text" name="kms"/> </p>
+        <p><label for="tipo_id">Tipo:</label><input type="text" name="tipo_id"/> </p>
+        <p align="center"><input type="submit" value="Adicionar"/></p>
+    </fieldset>
+</form>

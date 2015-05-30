@@ -86,6 +86,17 @@ class Empresa
         }
         return $empresas;
     }
-	
+
+    public static function getAllUsernames() {
+        $sql = 'SELECT username FROM empresas';
+        $result = mysql_query($sql) or die('getall: Invalid query: ' . mysql_error());
+
+        $empresas = array();
+        while ($row = mysql_fetch_assoc($result)) {
+            $empresas[] = $row["username"];
+        }
+        return $empresas;
+    }
+
 }
 ?>

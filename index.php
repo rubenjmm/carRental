@@ -2,19 +2,19 @@
 defined('ROOT') or define ('ROOT', (dirname(__FILE__))."/");
 require "utils/head.php";
 require "utils/navbar.php";
-require_once "classes/filial.php";
-require_once "classes/marcacao.php";
+
 ?>
 
 <body>
-<div class="row" style="z-index: -1; position: fixed;">
+<div class="row fullscreen" style="z-index: -1; position: fixed;">
     <?php
     require ROOT."utils/slider.php";
     ?>
 </div>
 <div class="row" style="z-index: 1; position:relative;top: 200px">
     <div class="col-md-6">
-        <form class="form-group form-style-10" style="background: #fa7921"  action="pesquisa_marcacao.php" method="get">
+		<div class="row">
+			<form class="form-group form-style-10" style="background: #fa7921;"  action="pesquisa_inicial.php" method="get">
             <h3 style="text-decoration-color: #0d2e58">Pesquise por carros perto de si</h3>
             <p style="text-decoration-color: #0d2e58">Cidade <input type="text" name="cidade" placeholder="Cidade" class="form-control">
             <div class="row">
@@ -31,12 +31,17 @@ require_once "classes/marcacao.php";
                 </div>
             </div>
         </form>
+		</div>
+		<div class="row">
+			<img src="img/imagemindex.jpg" style="position: relative; top: -30px; left: 120px;" class="img-responsive">
+		</div>
     </div> <!--form de pesquisa-->
 
     <div class="col-md-6" style="position: relative; top: 200px; right: 50px" >
         <div class="form-group" align="center">
             <h3 style="color: #00507d">Destinos mais populares</h3>
             <div class="row rcorners1">
+                <a href="pesquisa_inicial.php?cidade=porto">
                 <div class="col-sm-6">
                     <img src="img/porto.jpg" style="width: 130px; height: 90px; position: relative; top: 5px; left: 20px; border-radius: 2px; " class="img-responsive">
                 </div>
@@ -44,8 +49,10 @@ require_once "classes/marcacao.php";
                     <br>
                     <h3>Porto</h3>
                 </div>
+				</a>
             </div><br>
             <div class="row rcorners1">
+                <a href="pesquisa_inicial.php?cidade=lisboa">
                 <div class="col-sm-6">
                     <img src="img/lisboa.jpg" style="width: 130px; height: 90px; position: relative; top: 5px; left: 20px; border-radius: 2px;" class="img-responsive">
                 </div>
@@ -53,8 +60,10 @@ require_once "classes/marcacao.php";
                     <br>
                     <h3>Lisboa</h3>
                 </div>
+				</a>
             </div><br>
             <div class="row rcorners1" align="center">
+                <a href="pesquisa_inicial.php?cidade=faro">
                 <div class="col-sm-6">
                     <img src="img/faro.jpg" style="width: 130px; height: 90px; position: relative; top: 5px; left: 20px; border-radius: 2px;" class="img-responsive">
                 </div>
@@ -62,8 +71,10 @@ require_once "classes/marcacao.php";
                     <br>
                     <h3>Faro</h3>
                 </div>
+				</a>
             </div><br>
             <div class="row rcorners1" align="center">
+                <a href="pesquisa_inicial.php?cidade=funchal">
                 <div class="col-sm-6">
                     <img src="img/funchal.jpg" style="width: 130px; height: 90px; position: relative; top: 5px; left: 20px; border-radius: 2px;" class="img-responsive">
                 </div>
@@ -71,11 +82,17 @@ require_once "classes/marcacao.php";
                     <br>
                     <h3>Funchal</h3>
                 </div>
+				</a>
             </div><br>
             <br>
         </div>
     </div><!--destinos populares-->
+</div>
 
+<div class="row" style="position: relative; top: 200px;" align="center">
+	<?php
+	require "utils/footer.php";
+	?>
 </div>
 
 <?php
@@ -106,4 +123,5 @@ require_once "classes/marcacao.php";
 <script src="/js/jquery.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 </body>
+
 </html>

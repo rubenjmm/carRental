@@ -73,6 +73,16 @@ class Cliente
         }
         return $clientes;
     }
-	
+
+    public static function getAllUsernames() {
+        $sql = 'SELECT username FROM clientes';
+        $result = mysql_query($sql) or die('getall: Invalid query: ' . mysql_error());
+
+        $clientes = array();
+        while ($row = mysql_fetch_assoc($result)) {
+            $clientes[] = $row["username"];
+        }
+        return $clientes;
+    }
 }
 ?>
