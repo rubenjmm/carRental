@@ -11,9 +11,9 @@ require_once "classes/filial.php";
 if(isset($_GET["action"]) and $_GET["action"]=="delete" and isset($_GET["filial_id"])) {
 	Filial::delete($_GET["filial_id"]);
 }
-
+//public function __construct($id = null, $username = null, $password = null, $morada = null, $cidade = null, $telefone=null, $telemovel=null, $email=null, $empresa_id=null) {
 if(isset($_POST['nome']) and isset($_POST['morada']) and isset($_POST['username']) and isset($_POST['password']) and isset($_POST['telefone']) and isset($_POST['telemovel']) and isset($_POST['email'])) {
-	$filial = new Filial(NULL, $_POST['nome'], $_POST['morada'], $_POST['username'], $_POST['password'], $_POST['telefone'], $_POST['telemovel'], $_POST['email'], $_SESSION['empresa_id']);	
+	$filial = new Filial(NULL, $_POST['username'], md5($_POST['password']), $_POST['morada'], $_POST['cidade'], $_POST['telefone'], $_POST['telemovel'], $_POST['email'], $_SESSION['empresa_id']);
 	$filial->insert();
 }
 ?>

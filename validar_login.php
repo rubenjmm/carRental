@@ -2,6 +2,7 @@
 include 'classes/filial.php';
 include 'classes/empresa.php';
 
+
 if (isset($_POST["username"], $_POST["password"])) {
     $user = $_POST["username"];
     $pass = md5($_POST["password"]);

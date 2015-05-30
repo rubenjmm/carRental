@@ -11,14 +11,15 @@ require ROOT."utils/navbar.php";
         require ROOT."utils/slider.php";
     ?>
 </div>
-<div class="row" style="z-index: 0; position: relative; top: 0px; right: -25px;">
+<div class="row" style="z-index: 0; position: relative; right: -25px;">
     <h2>Registo</h2>
 </div>
 <div class="row" style="z-index: 1;  position: relative; top: -25px;">
     <div class="col-md-6">
         <form method="post" class="form-style-10" action="registar_empresa.php">
-            <h3>Empresa</h3>
+            <p><input type="range" min="0" max="100" step="100" name="tipo2" >Cliente<input type="radio" name="tipo" value="empresa">Empresa</p>
             <p><input type="text" name="nome" placeholder="Nome"/> </p>
+            <?php if
             <p><input placeholder="Password" type="password" name="password"/> </p>
             <p><input placeholder="Username" type="text" name="username"/> </p>
             <p><input type="text" name="Morada" placeholder="Morada"/> </p>

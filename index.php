@@ -14,7 +14,7 @@ require_once "classes/marcacao.php";
 </div>
 <div class="row" style="z-index: 1; position:relative;top: 200px">
     <div class="col-md-6">
-        <form class="form-group form-style-10" style="background: #fa7921"  action="index.php" method="get">
+        <form class="form-group form-style-10" style="background: #fa7921"  action="pesquisa_marcacao.php" method="get">
             <h3 style="text-decoration-color: #0d2e58">Pesquise por carros perto de si</h3>
             <p style="text-decoration-color: #0d2e58">Cidade <input type="text" name="cidade" placeholder="Cidade" class="form-control">
             <div class="row">
@@ -31,13 +31,14 @@ require_once "classes/marcacao.php";
                 </div>
             </div>
         </form>
-    </div>
+    </div> <!--form de pesquisa-->
+
     <div class="col-md-6" style="position: relative; top: 200px; right: 50px" >
         <div class="form-group" align="center">
             <h3 style="color: #00507d">Destinos mais populares</h3>
             <div class="row rcorners1">
                 <div class="col-sm-6">
-                    <img src="img/porto.jpg" style="max-width: 100px; max-height: 100px" class="img-responsive">
+                    <img src="img/porto.jpg" style="width: 130px; height: 90px; position: relative; top: 5px; left: 20px; border-radius: 2px; " class="img-responsive">
                 </div>
                 <div class="col-sm-6" align="center">
                     <br>
@@ -46,7 +47,7 @@ require_once "classes/marcacao.php";
             </div><br>
             <div class="row rcorners1">
                 <div class="col-sm-6">
-
+                    <img src="img/lisboa.jpg" style="width: 130px; height: 90px; position: relative; top: 5px; left: 20px; border-radius: 2px;" class="img-responsive">
                 </div>
                 <div class="col-sm-6">
                     <br>
@@ -55,7 +56,7 @@ require_once "classes/marcacao.php";
             </div><br>
             <div class="row rcorners1" align="center">
                 <div class="col-sm-6">
-
+                    <img src="img/faro.jpg" style="width: 130px; height: 90px; position: relative; top: 5px; left: 20px; border-radius: 2px;" class="img-responsive">
                 </div>
                 <div class="col-sm-6">
                     <br>
@@ -64,7 +65,7 @@ require_once "classes/marcacao.php";
             </div><br>
             <div class="row rcorners1" align="center">
                 <div class="col-sm-6">
-
+                    <img src="img/funchal.jpg" style="width: 130px; height: 90px; position: relative; top: 5px; left: 20px; border-radius: 2px;" class="img-responsive">
                 </div>
                 <div class="col-sm-6">
                     <br>
@@ -73,41 +74,18 @@ require_once "classes/marcacao.php";
             </div><br>
             <br>
         </div>
-    </div>
+    </div><!--destinos populares-->
+
 </div>
-
-<?php
-    $filiais = Filial::getAllByCidade($_GET['cidade']);
-
-    foreach ($filiais as $filial):
-
-        $fi_id=$filial->id;
-        $marcacao=Marcacao::loadByDatas($_GET['datainicio'],$_GET['$datafim'],$fi_id);
-
-        if(!$marcacao){
-            header(Var_dump("2"));
-        ?>
-        <tr>
-            <td><?php echo $filial->username; ?></td>
-        </tr>
-
-        <?php
-        }
-        else
-        {
-            header(Var_dump("1"));
-        }
-    endforeach;
-?>
 
 <?php
     if (isset($_GET["erro"])) {
         $msg_erro = "";
         switch ($_GET["erro"]) {
-            case 1: 
+            case 1:
                 $msg_erro = "Erro. username inexistente.";
                 break;
-            case 2: 
+            case 2:
                 $msg_erro = "Erro. Password errada.";
                 break;
             case 3:
@@ -121,7 +99,6 @@ require_once "classes/marcacao.php";
             echo "<h3>$msg_erro</h3>";
     }
 ?>
-
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
