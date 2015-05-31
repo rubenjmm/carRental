@@ -2,7 +2,6 @@
 defined('ROOT') or define ('ROOT', (dirname(__FILE__))."/");
 require "utils/head.php";
 require "utils/navbar.php";
-
 ?>
 
 <body>
