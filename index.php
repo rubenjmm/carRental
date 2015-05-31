@@ -31,11 +31,11 @@ require "utils/navbar.php";
                 </div>
             </div>
         </form>
-		</div>
+		</div><!--form de pesquisa-->
 		<div class="row">
 			<img src="img/imagemindex.jpg" style="position: relative; top: -30px; left: 120px;" class="img-responsive">
 		</div>
-    </div> <!--form de pesquisa-->
+    </div>
 
     <div class="col-md-6" style="position: relative; top: 200px; right: 50px" >
         <div class="form-group" align="center">

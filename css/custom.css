@@ -179,3 +179,15 @@ fieldset[disabled] .btn-custom.active {
     margin-right: auto;
     max-width: initial;
 }
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.results-table{
+    border-radius: 20px;
+    background: #e4e4e4;
+    width: 1250px;
+    height: 65px;
+}
